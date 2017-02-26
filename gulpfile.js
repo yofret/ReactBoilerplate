@@ -74,7 +74,7 @@
 // Fonts
 //--------------------------------------------------------------
 	gulp.task('fonts', function(){
-		return gulp.src(app + 'styles/fonts/**/*.{ttf,woff,woff2,eot,svg}')
+		return gulp.src(app + 'styles/fonts/**/*.{ttf,woff,woff2,eot,svg,otf}')
 			.pipe($.size({ tittle: 'fonts' }))
 			.pipe(gulp.dest(dist + 'styles/fonts/'))
 	});
@@ -94,8 +94,10 @@
 	gulp.task('watch', function(){
 		gulp.watch(app + 'index.html',['html']);
 		gulp.watch(app + 'styles/**/*.scss', ['sass']);
+		gulp.watch(app + 'styles/fonts/**/*.*', ['fonts']);
 		gulp.watch(app + 'scripts/**/*.js', ['scripts']);
 		gulp.watch(app + 'scripts/**/*.jsx', ['scripts']);
+		gulp.watch(app + 'images/**/*.{png,jpg,jpeg,gif}', ['images']);
 	})
 
 //--------------------------------------------------------------
